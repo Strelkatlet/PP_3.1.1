@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}/update")
-    public String editUser(@PathVariable("id") long id, Model model) {
+    public String patternUpdateUser(@PathVariable("id") long id, Model model) {
         model.addAttribute("user", userService.getUser(id));
         return "edit";
     }
