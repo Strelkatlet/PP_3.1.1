@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/create")
-    public String patternCreateNewUser(@ModelAttribute("user") User user) {
+    public String createNewUserPattern(@ModelAttribute("user") User user) {
         return "create";
     }
 
@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}/update")
-    public String patternUpdateUser(@PathVariable("id") long id, Model model) {
+    public String createUpdateUserPattern(@PathVariable("id") long id, Model model) {
         model.addAttribute("user", userService.getUser(id));
         return "edit";
     }
