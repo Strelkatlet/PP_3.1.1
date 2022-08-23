@@ -1,7 +1,7 @@
 package com.example.PP_311.controller;
 
 import com.example.PP_311.model.User;
-import com.example.PP_311.Service.UserService;
+import com.example.PP_311.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,13 +24,13 @@ public class UserController {
     }
 
     @GetMapping("/create")
-    public String addNewUser(@ModelAttribute("user") User user) {
+    public String patternCreateNewUser(@ModelAttribute("user") User user) {
         return "create";
     }
 
     @PostMapping("/createUser")
     public String createUser(@ModelAttribute("user") User user) {
-        userService.createUser(user);
+        userService.saveUser(user);
         return "redirect:/";
     }
 
@@ -42,7 +42,7 @@ public class UserController {
 
     @PatchMapping("/{id}/updateUser")
     public String updateUser(@ModelAttribute("user") User user) {
-        userService.updateUser(user);
+        userService.saveUser(user);
         return "redirect:/";
     }
 

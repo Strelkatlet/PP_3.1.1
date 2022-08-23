@@ -1,4 +1,4 @@
-package com.example.PP_311.Service;
+package com.example.PP_311.service;
 
 import com.example.PP_311.model.User;
 
@@ -9,9 +9,9 @@ public interface UserService {
 
     User getUser(long id);
 
-    void createUser(User user);
+    void saveUser(User user);
 
-    void updateUser(User user);
+
 
     void deleteUser(long id);
 }

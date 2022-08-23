@@ -1,4 +1,4 @@
-package com.example.PP_311.Service;
+package com.example.PP_311.service;
 
 import com.example.PP_311.model.User;
 import com.example.PP_311.repository.UserRepository;
@@ -16,14 +16,10 @@ public class UserServiceImp implements UserService{
     public UserServiceImp(UserRepository userRepository) {this.userRepository = userRepository;}
 
     @Override
-    public void createUser(User user) {
+    public void saveUser(User user) {
         userRepository.save(user);
     }
 
-    @Override
-    public void updateUser(User user) {
-        userRepository.save(user);
-    }
 
     @Transactional
     @Override
