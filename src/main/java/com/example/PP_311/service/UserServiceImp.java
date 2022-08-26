@@ -9,17 +9,27 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class UserServiceImp implements UserService{
+public class UserServiceImp implements UserService {
 
     private final UserRepository userRepository;
+
     @Autowired
-    public UserServiceImp(UserRepository userRepository) {this.userRepository = userRepository;}
+    public UserServiceImp(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public void saveUser(User user) {
         userRepository.save(user);
     }
 
+    @Transactional
+    @Override
+    public void updateUser(long id, User user) {
+        User userToBeUpdate = userRepository.getReferenceById(id);
+        userToBeUpdate.setId(id);
+        userRepository.save(user);
+    }
 
     @Transactional
     @Override
