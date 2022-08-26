@@ -18,6 +18,7 @@ public class UserServiceImp implements UserService {
         this.userRepository = userRepository;
     }
 
+    @Transactional
     @Override
     public void saveUser(User user) {
         userRepository.save(user);
@@ -31,19 +32,19 @@ public class UserServiceImp implements UserService {
         userRepository.save(user);
     }
 
-    @Transactional
+
     @Override
     public void deleteUser(long id) {
         userRepository.deleteById(id);
     }
 
-    @Transactional
+
     @Override
     public User getUser(long id) {
         return userRepository.getReferenceById(id);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
