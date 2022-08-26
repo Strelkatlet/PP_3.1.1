@@ -32,7 +32,7 @@ public class UserServiceImp implements UserService {
         userRepository.save(user);
     }
 
-
+    @Transactional
     @Override
     public void deleteUser(long id) {
         userRepository.deleteById(id);
